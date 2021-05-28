@@ -55,8 +55,8 @@ export default {
   left: 0;
   height: 100vh;
   width: 100vw;
-  background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)),
-    grey url('~assets/portfolio1.jpg') no-repeat;
+  /* linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), */
+  background: grey url('~assets/portfolio1.jpg') no-repeat;
   background-size: cover;
 }
 
@@ -107,11 +107,6 @@ export default {
   left: 0.5rem;
   top: 0.5rem;
 }
-
-a {
-  text-decoration: none;
-}
-
 .portrait {
   width: 50%;
   border-radius: 2px;
