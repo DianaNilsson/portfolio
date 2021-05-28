@@ -1,22 +1,52 @@
 <template>
   <div>
-    <header>
-      <nav>Navbar</nav>
-      <div class="header-bg">
-        <div class="bg-image" />
-        <div class="triangle" />
-        <div class="header-content-container">
-          <div class="header-content">
-            <h1>Portfolio</h1>
-            <h3>Junior frontendutvecklare</h3>
-            <p>Diana Nilsson</p>
-          </div>
+    <div class="bg-image" />
+    <nav class="navbar">
+      <p>Diana Nilsson</p>
+      <img class="portrait" src="~assets/portrait.jpg" alt="porträtt" />
+      <p>Frontendutvecklare</p>
+      <p>Symboler</p>
+
+      <div class="router-links">
+        <div class="" :class="currentPath === '/' && 'active'">
+          <div class="vertical-bar" />
+          <NuxtLink to="/">Hem</NuxtLink>
+        </div>
+        <div :class="currentPath === '/portfolio' && 'active'">
+          <div class="vertical-bar" />
+          <NuxtLink to="/portfolio">Portfolio</NuxtLink>
+        </div>
+        <div :class="currentPath === '/skills' && 'active'">
+          <div class="vertical-bar" />
+          <NuxtLink to="/skills">Skills</NuxtLink>
+        </div>
+        <div :class="currentPath === '/om' && 'active'">
+          <div class="vertical-bar" />
+          <NuxtLink to="/om">Om</NuxtLink>
+        </div>
+        <div :class="currentPath === '/kontakt' && 'active'">
+          <div class="vertical-bar" />
+          <NuxtLink to="/kontakt">Kontakt</NuxtLink>
         </div>
       </div>
-    </header>
-    <Nuxt />
+
+      <button class="collapse">>></button>
+    </nav>
+    <main>
+      <Nuxt />
+    </main>
   </div>
 </template>
+
+<script>
+export default {
+  computed: {
+    currentPath() {
+      return this.$nuxt.$route.path
+    },
+  },
+}
+</script>
 
 <style>
 /* Reset */
@@ -39,66 +69,83 @@ html {
   margin: 0;
 }
 
-/* Header */
-header {
-  background-color: #4b4b4b;
-  height: 100vh;
-}
-/* Navbar */
-nav {
-  background-color: #4b4b4b;
-  color: white;
-  height: 2rem;
-}
-
-.header-bg {
-  background-color: #fff;
-  /* Minus margin header-bg and nav height*/
-  height: calc(100vh - 4rem);
-  margin: 1rem;
-  padding: 2rem 2rem 2rem 0;
-  position: relative;
-}
-
 .bg-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
   background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)),
     grey url('~assets/portfolio1.jpg') no-repeat;
   background-size: cover;
-  height: 100%;
-  width: 100%;
 }
 
-.header-content-container {
-  background-color: transparent;
-  border: 5px solid #8dcdf1;
-  height: calc(100vh - 4rem - 6rem);
-  width: calc(100vh - 4rem - 6rem);
+.navbar {
+  background-color: #233f50;
+  height: 100vh;
+  width: 11rem;
   position: absolute;
-  bottom: 3rem;
-  left: 6rem;
+  top: 0;
+  left: 0;
+  text-align: center;
+  overflow: visible;
+  /* overflow-y: scroll; */
 }
 
-.header-content {
-  background-color: white;
-  height: calc((100vh - 4rem - 6rem) * 0.8);
-  width: calc((100vh - 4rem - 6rem) * 0.8);
-  position: absolute;
-  /* Vertical align */
-  top: calc(((100vh - 4rem - 6rem) - (100vh - 4rem - 6rem) * 0.8) / 2);
-  right: -4rem;
+.navbar::-webkit-scrollbar {
+  display: none;
+}
+
+.navbar * {
+  color: #fff;
+}
+
+.navbar > * {
+  text-align: center;
+}
+
+.router-links > * {
+  height: 4rem;
+  position: relative;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
-.triangle {
-  width: 0;
-  height: 0;
-  border-bottom: calc(85vh - 2rem) solid #344e5c;
-  border-right: calc(70vw - 2rem) solid transparent;
+.router-links > .active {
+  background-color: #8babbd;
+}
+
+.router-links > .active > .vertical-bar {
+  width: 6px;
+  background-color: #a4484e;
+  border: 2px solid #a4484e;
+  border-radius: 3px;
+  height: 3rem;
+
   position: absolute;
-  left: 0;
-  bottom: 0;
+  left: 0.5rem;
+  top: 0.5rem;
+}
+
+a {
+  text-decoration: none;
+}
+
+.portrait {
+  width: 50%;
+  border-radius: 2px;
+}
+
+.collapse {
+  background-color: #a4484e;
+  border-radius: 5px;
+  border: none;
+  padding: 0.5rem 1rem;
+
+  position: absolute;
+  top: 1rem;
+  right: -1.5rem;
+  display: block;
 }
 </style>
