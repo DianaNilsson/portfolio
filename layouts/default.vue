@@ -1,28 +1,29 @@
 <template>
-  <div>
+  <div class="nuxt-app">
     <div class="bg-image" />
     <nav class="navbar">
-      <p>Diana Nilsson</p>
-      <img class="portrait" src="~assets/portrait.jpg" alt="porträtt" />
-      <p>Frontendutvecklare</p>
-      <p>Symboler</p>
+      <div class="presentation">
+        <img class="portrait" src="~assets/portrait.jpg" alt="porträtt" />
+        <p class="name">Diana Nilsson</p>
+        <p>Symboler</p>
+      </div>
 
       <div class="router-links">
         <div class="" :class="currentPath === '/' && 'active'">
           <div class="vertical-bar" />
           <NuxtLink to="/">Hem</NuxtLink>
         </div>
-        <div :class="currentPath === '/portfolio' && 'active'">
+        <div :class="currentPath === '/om' && 'active'">
           <div class="vertical-bar" />
-          <NuxtLink to="/portfolio">Portfolio</NuxtLink>
+          <NuxtLink to="/om">Om mig</NuxtLink>
+        </div>
+        <div :class="currentPath === '/projekt' && 'active'">
+          <div class="vertical-bar" />
+          <NuxtLink to="/projekt">Projekt</NuxtLink>
         </div>
         <div :class="currentPath === '/skills' && 'active'">
           <div class="vertical-bar" />
           <NuxtLink to="/skills">Skills</NuxtLink>
-        </div>
-        <div :class="currentPath === '/om' && 'active'">
-          <div class="vertical-bar" />
-          <NuxtLink to="/om">Om</NuxtLink>
         </div>
         <div :class="currentPath === '/kontakt' && 'active'">
           <div class="vertical-bar" />
@@ -32,9 +33,7 @@
 
       <button class="collapse">>></button>
     </nav>
-    <main>
-      <Nuxt />
-    </main>
+    <Nuxt class="route-view" />
   </div>
 </template>
 
@@ -48,78 +47,101 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
+/*----- Layout -----*/
+.nuxt-app {
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.route-view {
+  flex-grow: 1;
+  overflow: hidden;
+  position: relative;
+}
+
+.navbar {
+  width: 14%;
+  min-width: 12rem;
+  position: relative;
+}
+
 .bg-image {
   position: absolute;
   top: 0;
   left: 0;
   height: 100vh;
   width: 100vw;
-  /* linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), */
-  background: grey url('~assets/portfolio1.jpg') no-repeat;
+  background: $light-grey url('~assets/portfolio1.jpg') no-repeat;
   background-size: cover;
 }
 
+/*----- Navbar -----*/
 .navbar {
-  background-color: #233f50;
-  height: 100vh;
-  width: 11rem;
-  position: absolute;
-  top: 0;
-  left: 0;
-  text-align: center;
-  overflow: visible;
-  /* overflow-y: scroll; */
-}
-
-.navbar::-webkit-scrollbar {
-  display: none;
-}
-
-.navbar * {
-  color: #fff;
-}
-
-.navbar > * {
-  text-align: center;
-}
-
-.router-links > * {
-  height: 4rem;
-  position: relative;
+  background-color: $dark-blue;
   display: flex;
-  justify-content: center;
-  align-items: center;
-}
+  flex-direction: column;
+  padding: 2rem 0 1rem;
+  text-align: center;
 
-.router-links > .active {
-  background-color: #8babbd;
-}
+  * {
+    color: #fff;
+    text-align: center;
+  }
 
-.router-links > .active > .vertical-bar {
-  width: 6px;
-  background-color: #a4484e;
-  border: 2px solid #a4484e;
-  border-radius: 3px;
-  height: 3rem;
+  .presentation {
+    margin-bottom: 2rem;
+  }
 
-  position: absolute;
-  left: 0.5rem;
-  top: 0.5rem;
-}
-.portrait {
-  width: 50%;
-  border-radius: 2px;
-}
+  .name {
+    font-size: 1rem;
+    font-weight: 300;
+  }
 
-.collapse {
-  background-color: #a4484e;
-  border-radius: 5px;
-  padding: 0.5rem 1rem;
+  .portrait {
+    width: 55%;
+    border: 1px solid $white;
+    border-radius: 50%;
+  }
 
-  position: absolute;
-  top: 1rem;
-  right: -1.5rem;
-  display: block;
+  .router-links {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    max-height: 36rem;
+  }
+
+  .router-links > * {
+    flex-grow: 1;
+    position: relative;
+    @extend .flex-center;
+  }
+
+  .router-links > .active {
+    background-color: $light-blue;
+  }
+
+  .router-links > .active > .vertical-bar {
+    width: 6px;
+    background-color: $red;
+    border: 2px solid $red;
+    border-radius: 3px;
+    height: 80%;
+    position: absolute;
+    left: 0.5rem;
+  }
+
+  /*----- Collapse button -----*/
+  .collapse {
+    background-color: $red;
+    border-radius: 5px;
+    padding: 0.5rem 1rem;
+    position: absolute;
+    top: 1rem;
+    right: -1.5rem;
+    z-index: 1;
+    display: block;
+  }
 }
 </style>
