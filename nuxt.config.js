@@ -28,19 +28,17 @@ export default {
     '@nuxtjs/eslint-module',
   ],
 
-  // Modules: https://go.nuxtjs.dev/config-modules
-  modules: [
-    // https://go.nuxtjs.dev/pwa
-    '@nuxtjs/pwa',
-    // https://go.nuxtjs.dev/content
-    '@nuxt/content',
-  ],
+  modules: ['@nuxtjs/pwa', '@nuxt/content', '@nuxtjs/style-resources'],
 
   // PWA module configuration: https://go.nuxtjs.dev/pwa
   pwa: {
     manifest: {
       lang: 'en',
     },
+  },
+
+  styleResources: {
+    scss: ['@/assets/main.scss', '@/assets/variables.scss'],
   },
 
   // Content module configuration: https://go.nuxtjs.dev/config-content
