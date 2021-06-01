@@ -25,6 +25,7 @@ header {
   @extend .flex-center;
   width: 40%;
   height: 80%;
+  margin: 0 20% 0 10%;
   position: relative;
 }
 
