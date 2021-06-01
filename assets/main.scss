@@ -1,6 +1,31 @@
+@import './variables';
+
 //Flex
 .flex-center {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+//Button
+.btn {
+  background-color: $beige;
+  border-radius: 0.25rem;
+  color: $white;
+  cursor: pointer;
+  font-size: 1rem;
+  letter-spacing: 0.5px;
+  padding: 0.5rem 0.8rem;
+  transition: background-color 0.15s ease, box-shadow 0.15s ease;
+  vertical-align: center;
+  text-align: center;
+
+  &:hover {
+    background-color: $dark-beige;
+  }
+
+  &:focus {
+    background-color: $dark-beige;
+    box-shadow: 0 0 0 0.2rem rgb(157 135 123 / 50%);
+  }
 }

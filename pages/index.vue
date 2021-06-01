@@ -1,11 +1,20 @@
 <template>
   <header>
-    <div class="outer-border">
-      <div class="headers">
+    <div class="header-border">
+      <div class="header-container">
         <h1>Portfolio</h1>
-        <h3>Junior Frontendutvecklare</h3>
-        <h2 class="name">Diana Nilsson</h2>
-        <button>Visa projekt</button>
+        <h2>Junior Frontendutvecklare</h2>
+        <h3>Diana Nilsson</h3>
+        <button
+          class="btn"
+          @click="
+            $router.push({
+              path: '/projekt',
+            })
+          "
+        >
+          Visa projekt
+        </button>
       </div>
     </div>
     <div class="triangle-right-corner" />
@@ -20,8 +29,8 @@ export default {}
 header {
   @extend .flex-center;
 }
-.outer-border {
-  border: 6px solid $light-blue;
+.header-border {
+  border: 6px solid $blue;
   @extend .flex-center;
   width: 40%;
   height: 80%;
@@ -29,29 +38,7 @@ header {
   position: relative;
 }
 
-h1 {
-  text-transform: uppercase;
-  font-weight: 400;
-  font-size: 3em;
-  margin-bottom: 0.2em;
-}
-
-h2 {
-  font-family: 'Herr Von Muellerhoff', 'Italianno', serif;
-  font-weight: 400;
-  font-size: 3em;
-  letter-spacing: 2px;
-  margin-bottom: 0.2em;
-}
-
-h3 {
-  text-transform: uppercase;
-  font-weight: 400;
-  font-size: 1.2em;
-  margin-bottom: 2em;
-}
-
-.headers {
+.header-container {
   background-color: $white;
   height: 80%;
   width: 100%;
@@ -59,6 +46,28 @@ h3 {
   flex-direction: column;
   position: absolute;
   left: 20%;
+
+  h1 {
+    text-transform: uppercase;
+    font-weight: 400;
+    font-size: 3em;
+    margin-bottom: 0.2em;
+  }
+
+  h2 {
+    text-transform: uppercase;
+    font-weight: 400;
+    font-size: 1.2em;
+    margin-bottom: 2.5em;
+  }
+
+  h3 {
+    font-family: 'Herr Von Muellerhoff', 'Italianno', serif;
+    font-weight: 400;
+    font-size: 3em;
+    letter-spacing: 2px;
+    margin-bottom: 0.4em;
+  }
 }
 
 .triangle-right-corner {

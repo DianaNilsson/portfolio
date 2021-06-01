@@ -1,41 +1,37 @@
 <template>
   <div class="nuxt-app">
     <div class="bg-image" />
-    <nav class="navbar">
-      <div class="presentation">
-        <img class="portrait" src="~assets/portrait.jpg" alt="porträtt" />
+    <nav :class="navbarCollapsed && 'navbar-collapsed'" class="navbar">
+      <div class="presentation" v-if="!navbarCollapsed">
         <p class="name">Diana Nilsson</p>
-        <p>
-          <fa icon="envelope" />
-          <fa :icon="['fab', 'github']" />
-          <fa :icon="['fab', 'linkedin']" />
+        <img class="portrait" src="~assets/portrait.jpg" alt="porträtt" />
+        <p class="contact-icons">
+          <NuxtLink to="/kontakt">
+            <fa icon="envelope" />
+          </NuxtLink>
+          <a href="https://github.com/DianaNilsson" target="_blank">
+            <fa :icon="['fab', 'github']" />
+          </a>
+          <a href="www.linkedin.com/in/diana-nilsson" target="_blank">
+            <fa :icon="['fab', 'linkedin']" />
+          </a>
         </p>
       </div>
 
-      <div class="router-links">
-        <div class="" :class="currentPath === '/' && 'active'">
-          <div class="vertical-bar" />
-          <NuxtLink to="/">Hem</NuxtLink>
-        </div>
-        <div :class="currentPath === '/om' && 'active'">
-          <div class="vertical-bar" />
-          <NuxtLink to="/om">Om mig</NuxtLink>
-        </div>
-        <div :class="currentPath === '/projekt' && 'active'">
-          <div class="vertical-bar" />
-          <NuxtLink to="/projekt">Projekt</NuxtLink>
-        </div>
-        <div :class="currentPath === '/skills' && 'active'">
-          <div class="vertical-bar" />
-          <NuxtLink to="/skills">Skills</NuxtLink>
-        </div>
-        <div :class="currentPath === '/kontakt' && 'active'">
-          <div class="vertical-bar" />
-          <NuxtLink to="/kontakt">Kontakt</NuxtLink>
-        </div>
+      <div class="router-links" v-if="!navbarCollapsed">
+        <NuxtLink to="/"><span class="vertical-bar" />Hem</NuxtLink>
+        <NuxtLink to="/om"><span class="vertical-bar" />Om mig</NuxtLink>
+        <NuxtLink to="/projekt"> <span class="vertical-bar" />Projekt</NuxtLink>
+        <NuxtLink to="/skills"><span class="vertical-bar" />Skills</NuxtLink>
+        <NuxtLink to="/kontakt"> <span class="vertical-bar" />Kontakt</NuxtLink>
       </div>
 
-      <button class="collapse-btn">>></button>
+      <button
+        class="btn collapse-btn"
+        @click="navbarCollapsed = navbarCollapsed ? false : true"
+      >
+        <span v-if="navbarCollapsed">&gt;&gt;</span><span v-else>&lt;&lt;</span>
+      </button>
     </nav>
     <Nuxt class="route-view" />
   </div>
@@ -47,6 +43,11 @@ export default {
     currentPath() {
       return this.$nuxt.$route.path
     },
+  },
+  data() {
+    return {
+      navbarCollapsed: true,
+    }
   },
 }
 </script>
@@ -66,9 +67,15 @@ export default {
 }
 
 .navbar {
-  width: 14%;
   min-width: 12rem;
   position: relative;
+  transition: width 0.5s ease-in-out;
+  width: 14%;
+}
+
+.navbar-collapsed {
+  width: 2rem !important;
+  min-width: 2rem !important;
 }
 
 .bg-image {
@@ -95,57 +102,76 @@ export default {
   }
 
   .presentation {
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
   }
 
   .name {
-    font-size: 1rem;
-    font-weight: 300;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
   }
 
   .portrait {
-    width: 55%;
     border: 1px solid $white;
     border-radius: 50%;
+    margin-bottom: 1rem;
+    width: 60%;
+  }
+
+  .contact-icons {
+    font-size: 1.2rem;
+    a {
+      margin: 0 0.5rem;
+      display: inline-block;
+      transition: transform 0.3s ease;
+
+      &:hover {
+        transform: scale(1.4);
+      }
+    }
   }
 
   .router-links {
-    flex-grow: 1;
+    cursor: pointer;
     display: flex;
     flex-direction: column;
+    flex-grow: 1;
     max-height: 36rem;
+
+    .nuxt-link-exact-active {
+      background-color: $blue !important;
+      box-shadow: 0px 0px 0px 1px $blue-shadow;
+      transition: background-color 0.4s ease;
+
+      .vertical-bar {
+        width: 4px;
+        background-color: $light-blue;
+        border: 1px solid $light-blue;
+        border-radius: 3px;
+        height: 84%;
+        position: absolute;
+        left: 0.4rem;
+      }
+    }
   }
 
   .router-links > * {
     flex-grow: 1;
     position: relative;
     @extend .flex-center;
-  }
-
-  .router-links > .active {
-    background-color: $light-blue;
-  }
-
-  .router-links > .active > .vertical-bar {
-    width: 4px;
-    background-color: $red;
-    border: 1px solid $red;
-    border-radius: 3px;
-    height: 84%;
-    position: absolute;
-    left: 0.3rem;
+    transition: background-color 0.3s ease;
+    &:hover {
+      background-color: $dark-overlay;
+    }
   }
 
   /*----- Collapse button -----*/
   .collapse-btn {
-    background-color: $red;
-    border-radius: 5px;
-    padding: 0.5rem 1rem;
     position: absolute;
-    top: 1rem;
+    top: 4rem;
     right: -1.5rem;
     z-index: 1;
-    display: block;
   }
 }
 </style>

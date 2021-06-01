@@ -35,8 +35,7 @@ export default {
     component: 'fa',
     icons: {
       solid: ['faEnvelope'],
-      // brands: ['faGithub', 'faLinkedin'],
-      brands: true,
+      brands: ['faGithub', 'faLinkedin'],
     },
   },
 
