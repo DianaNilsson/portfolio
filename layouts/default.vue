@@ -31,7 +31,7 @@
         </div>
       </div>
 
-      <button class="collapse">>></button>
+      <button class="collapse-btn">>></button>
     </nav>
     <Nuxt class="route-view" />
   </div>
@@ -123,17 +123,17 @@ export default {
   }
 
   .router-links > .active > .vertical-bar {
-    width: 6px;
+    width: 4px;
     background-color: $red;
-    border: 2px solid $red;
+    border: 1px solid $red;
     border-radius: 3px;
-    height: 80%;
+    height: 84%;
     position: absolute;
-    left: 0.5rem;
+    left: 0.3rem;
   }
 
   /*----- Collapse button -----*/
-  .collapse {
+  .collapse-btn {
     background-color: $red;
     border-radius: 5px;
     padding: 0.5rem 1rem;
