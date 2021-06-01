@@ -27,14 +27,24 @@ export default {
     // https://go.nuxtjs.dev/eslint
     '@nuxtjs/eslint-module',
     '@nuxtjs/fontawesome',
+    '@nuxtjs/google-fonts',
   ],
 
+  // Fontawesome module
   fontawesome: {
     component: 'fa',
     icons: {
       solid: ['faEnvelope'],
       // brands: ['faGithub', 'faLinkedin'],
       brands: true,
+    },
+  },
+
+  // Google fonts module
+  googleFonts: {
+    families: {
+      'Herr Von Muellerhoff': [400],
+      Italianno: [400],
     },
   },
 

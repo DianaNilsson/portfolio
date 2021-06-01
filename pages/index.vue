@@ -3,8 +3,8 @@
     <div class="outer-border">
       <div class="headers">
         <h1>Portfolio</h1>
-        <h2>Diana Nilsson</h2>
         <h3>Junior Frontendutvecklare</h3>
+        <h2 class="name">Diana Nilsson</h2>
         <button>Visa projekt</button>
       </div>
     </div>
@@ -26,6 +26,28 @@ header {
   width: 40%;
   height: 80%;
   position: relative;
+}
+
+h1 {
+  text-transform: uppercase;
+  font-weight: 400;
+  font-size: 3em;
+  margin-bottom: 0.2em;
+}
+
+h2 {
+  font-family: 'Herr Von Muellerhoff', 'Italianno', serif;
+  font-weight: 400;
+  font-size: 3em;
+  letter-spacing: 2px;
+  margin-bottom: 0.2em;
+}
+
+h3 {
+  text-transform: uppercase;
+  font-weight: 400;
+  font-size: 1.2em;
+  margin-bottom: 2em;
 }
 
 .headers {
