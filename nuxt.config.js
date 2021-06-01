@@ -26,7 +26,17 @@ export default {
   buildModules: [
     // https://go.nuxtjs.dev/eslint
     '@nuxtjs/eslint-module',
+    '@nuxtjs/fontawesome',
   ],
+
+  fontawesome: {
+    component: 'fa',
+    icons: {
+      solid: ['faEnvelope'],
+      // brands: ['faGithub', 'faLinkedin'],
+      brands: true,
+    },
+  },
 
   modules: ['@nuxtjs/pwa', '@nuxt/content', '@nuxtjs/style-resources'],
 

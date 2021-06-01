@@ -5,7 +5,11 @@
       <div class="presentation">
         <img class="portrait" src="~assets/portrait.jpg" alt="porträtt" />
         <p class="name">Diana Nilsson</p>
-        <p>Symboler</p>
+        <p>
+          <fa icon="envelope" />
+          <fa :icon="['fab', 'github']" />
+          <fa :icon="['fab', 'linkedin']" />
+        </p>
       </div>
 
       <div class="router-links">
