@@ -1,9 +1,14 @@
 <template>
   <div class="nuxt-app">
-    <div class="bg-image" />
+    <transition appear name="fade">
+      <div class="home-bg" key="home" v-if="homePage">
+        <div class="bottom-triangle" />
+      </div>
+      <div class="main-bg" key="main" v-else><div class="top-triangle" /></div>
+    </transition>
     <nav :class="navbarCollapsed && 'navbar-collapsed'" class="navbar">
-      <div class="presentation" v-if="!navbarCollapsed">
-        <p class="name">Diana Nilsson</p>
+      <div class="presentation" v-show="!navbarCollapsed">
+        <p class="name">Diana Nilsson {{ homePage }}</p>
         <img class="portrait" src="~assets/portrait.jpg" alt="porträtt" />
         <p class="contact-icons">
           <NuxtLink to="/kontakt">
@@ -12,13 +17,13 @@
           <a href="https://github.com/DianaNilsson" target="_blank">
             <fa :icon="['fab', 'github']" />
           </a>
-          <a href="www.linkedin.com/in/diana-nilsson" target="_blank">
+          <a href="https://linkedin.com/in/diana-nilsson" target="_blank">
             <fa :icon="['fab', 'linkedin']" />
           </a>
         </p>
       </div>
 
-      <div class="router-links" v-if="!navbarCollapsed">
+      <div class="router-links" v-show="!navbarCollapsed">
         <NuxtLink to="/"><span class="vertical-bar" />Hem</NuxtLink>
         <NuxtLink to="/om"><span class="vertical-bar" />Om mig</NuxtLink>
         <NuxtLink to="/projekt"> <span class="vertical-bar" />Projekt</NuxtLink>
@@ -40,13 +45,13 @@
 <script>
 export default {
   computed: {
-    currentPath() {
-      return this.$nuxt.$route.path
+    homePage() {
+      return this.$nuxt.$route.path === '/'
     },
   },
   data() {
     return {
-      navbarCollapsed: true,
+      navbarCollapsed: false,
     }
   },
 }
@@ -58,6 +63,8 @@ export default {
   display: flex;
   height: 100vh;
   overflow: hidden;
+  background: $light-grey url('~assets/portfolio1.jpg') no-repeat;
+  background-size: cover;
 }
 
 .route-view {
@@ -66,26 +73,50 @@ export default {
   position: relative;
 }
 
+.home-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+}
+
+.main-bg {
+  @extend .home-bg;
+  background-color: rgba(242, 242, 242, 0.6);
+}
+
+.triangle {
+  border-left: 100px solid transparent;
+  height: 0;
+  width: 0;
+  position: absolute;
+  right: 0;
+  z-index: 1;
+}
+.bottom-triangle {
+  @extend .triangle;
+  border-bottom: 100px solid $dark-blue;
+  bottom: 0;
+}
+
+.top-triangle {
+  @extend .triangle;
+  border-top: 100px solid $dark-blue;
+  top: 0;
+}
+
 .navbar {
   min-width: 12rem;
   position: relative;
-  transition: width 0.5s ease-in-out;
+  transition: width 0.5s ease;
+  z-index: 1;
   width: 14%;
 }
 
 .navbar-collapsed {
   width: 2rem !important;
   min-width: 2rem !important;
-}
-
-.bg-image {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100vh;
-  width: 100vw;
-  background: $light-grey url('~assets/portfolio1.jpg') no-repeat;
-  background-size: cover;
 }
 
 /*----- Navbar -----*/
@@ -97,7 +128,7 @@ export default {
   text-align: center;
 
   * {
-    color: #fff;
+    color: $white;
     text-align: center;
   }
 
@@ -129,6 +160,8 @@ export default {
       &:hover {
         transform: scale(1.4);
       }
+      &:active {
+      }
     }
   }
 
@@ -142,7 +175,7 @@ export default {
     .nuxt-link-exact-active {
       background-color: $blue !important;
       box-shadow: 0px 0px 0px 1px $blue-shadow;
-      transition: background-color 0.4s ease;
+      transition: background-color 0.6s ease;
 
       .vertical-bar {
         width: 4px;
@@ -160,9 +193,13 @@ export default {
     flex-grow: 1;
     position: relative;
     @extend .flex-center;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.4s ease;
     &:hover {
       background-color: $dark-overlay;
+    }
+    &:active {
+      background-color: $dark-overlay2;
+      box-shadow: 0px 0px 0px 3px $blue-shadow;
     }
   }
 
@@ -173,5 +210,15 @@ export default {
     right: -1.5rem;
     z-index: 1;
   }
+}
+
+/*----- Transition -----*/
+.fade-leave-active,
+.fade-enter-active {
+  transition: opacity 0.8s;
+}
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
 }
 </style>

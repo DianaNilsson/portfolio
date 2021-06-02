@@ -1,5 +1,12 @@
 @import './variables';
 
+//Main
+main {
+  padding: 3rem 2rem;
+  position: relative;
+  overflow-y: auto;
+}
+
 //Flex
 .flex-center {
   display: flex;
@@ -28,4 +35,14 @@
     background-color: $dark-beige;
     box-shadow: 0 0 0 0.2rem rgb(157 135 123 / 50%);
   }
+}
+
+//Page transition
+.page-leave-active,
+.page-enter-active {
+  transition: opacity 0.5s;
+}
+.page-enter,
+.page-leave-to {
+  opacity: 0;
 }

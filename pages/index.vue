@@ -17,7 +17,6 @@
         </button>
       </div>
     </div>
-    <div class="triangle-right-corner" />
   </header>
 </template>
 
@@ -68,15 +67,5 @@ header {
     letter-spacing: 2px;
     margin-bottom: 0.4em;
   }
-}
-
-.triangle-right-corner {
-  width: 0;
-  height: 0;
-  border-bottom: 100px solid $dark-blue;
-  border-left: 100px solid transparent;
-  position: absolute;
-  right: 0;
-  bottom: 0;
 }
 </style>
