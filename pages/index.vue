@@ -4,17 +4,22 @@
       <div class="header-container">
         <h1>Portfolio</h1>
         <h2>Junior Frontendutvecklare</h2>
-        <h3>Diana Nilsson</h3>
-        <button
-          class="btn"
-          @click="
-            $router.push({
-              path: '/projekt',
-            })
-          "
-        >
-          Visa projekt
-        </button>
+        <transition appear name="name">
+          <h3>Diana Nilsson</h3>
+        </transition>
+
+        <transition appear name="button">
+          <button
+            class="btn"
+            @click="
+              $router.push({
+                path: '/projekt',
+              })
+            "
+          >
+            Visa projekt
+          </button>
+        </transition>
       </div>
     </div>
   </header>
@@ -67,5 +72,25 @@ header {
     letter-spacing: 2px;
     margin-bottom: 0.4em;
   }
+}
+
+//Transitions
+.name-leave-active,
+.name-enter-active {
+  transition: all 0.5s;
+}
+.name-enter,
+.name-leave-to {
+  opacity: 0;
+  transform: scale(0);
+}
+
+.button-leave-active,
+.button-enter-active {
+  transition: opacity 1s;
+}
+.button-enter,
+.button-leave-to {
+  opacity: 0;
 }
 </style>
