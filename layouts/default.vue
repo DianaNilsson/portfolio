@@ -41,7 +41,7 @@
 
       <button
         class="btn collapse-btn"
-        @click="navbarCollapsed = navbarCollapsed ? false : true"
+        @click="navbarCollapsed = !navbarCollapsed"
       >
         <span v-if="navbarCollapsed">&gt;&gt;</span><span v-else>&lt;&lt;</span>
       </button>
@@ -68,11 +68,14 @@ export default {
 <style lang="scss">
 /*----- Layout -----*/
 .nuxt-app {
+  background: $light-grey url('~assets/portfolio.jpg') repeat-y;
+  background-size: cover;
   display: flex;
   height: 100vh;
+  margin: auto;
+  max-width: 1800px;
   overflow: hidden;
-  background: $light-grey url('~assets/portfolio1.jpg') no-repeat;
-  background-size: cover;
+  position: relative;
 }
 
 .route-view {
@@ -85,8 +88,8 @@ export default {
   position: absolute;
   top: 0;
   left: 0;
-  height: 100vh;
-  width: 100vw;
+  height: 100%;
+  width: 100%;
 }
 
 .main-bg {
@@ -155,7 +158,8 @@ export default {
     border: 1px solid $white;
     border-radius: 50%;
     margin-bottom: 1rem;
-    width: 60%;
+    width: 8rem;
+    height: 8rem;
   }
 
   .contact-icons {
