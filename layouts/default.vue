@@ -1,35 +1,43 @@
 <template>
   <div class="nuxt-app">
-    <transition appear name="fade">
+    <transition appear name="background-fade">
       <div class="home-bg" key="home" v-if="homePage">
         <div class="bottom-triangle" />
       </div>
       <div class="main-bg" key="main" v-else><div class="top-triangle" /></div>
     </transition>
     <nav :class="navbarCollapsed && 'navbar-collapsed'" class="navbar">
-      <div class="presentation" v-show="!navbarCollapsed">
-        <p class="name">Diana Nilsson {{ homePage }}</p>
-        <img class="portrait" src="~assets/portrait.jpg" alt="porträtt" />
-        <p class="contact-icons">
-          <NuxtLink to="/kontakt">
-            <fa icon="envelope" />
-          </NuxtLink>
-          <a href="https://github.com/DianaNilsson" target="_blank">
-            <fa :icon="['fab', 'github']" />
-          </a>
-          <a href="https://linkedin.com/in/diana-nilsson" target="_blank">
-            <fa :icon="['fab', 'linkedin']" />
-          </a>
-        </p>
-      </div>
+      <transition name="navbar-fade">
+        <div class="presentation" v-show="!navbarCollapsed">
+          <p class="name">Diana Nilsson</p>
+          <img class="portrait" src="~assets/portrait.jpg" alt="porträtt" />
+          <p class="contact-icons">
+            <NuxtLink to="/kontakt">
+              <fa icon="envelope" />
+            </NuxtLink>
+            <a href="https://github.com/DianaNilsson" target="_blank">
+              <fa :icon="['fab', 'github']" />
+            </a>
+            <a href="https://linkedin.com/in/diana-nilsson" target="_blank">
+              <fa :icon="['fab', 'linkedin']" />
+            </a>
+          </p>
+        </div>
+      </transition>
 
-      <div class="router-links" v-show="!navbarCollapsed">
-        <NuxtLink to="/"><span class="vertical-bar" />Hem</NuxtLink>
-        <NuxtLink to="/om"><span class="vertical-bar" />Om mig</NuxtLink>
-        <NuxtLink to="/projekt"> <span class="vertical-bar" />Projekt</NuxtLink>
-        <NuxtLink to="/skills"><span class="vertical-bar" />Skills</NuxtLink>
-        <NuxtLink to="/kontakt"> <span class="vertical-bar" />Kontakt</NuxtLink>
-      </div>
+      <transition name="navbar-fade">
+        <div class="router-links" v-show="!navbarCollapsed">
+          <NuxtLink to="/"><span class="vertical-bar" />Hem</NuxtLink>
+          <NuxtLink to="/om"><span class="vertical-bar" />Om mig</NuxtLink>
+          <NuxtLink to="/projekt">
+            <span class="vertical-bar" />Projekt</NuxtLink
+          >
+          <NuxtLink to="/skills"><span class="vertical-bar" />Skills</NuxtLink>
+          <NuxtLink to="/kontakt">
+            <span class="vertical-bar" />Kontakt</NuxtLink
+          >
+        </div>
+      </transition>
 
       <button
         class="btn collapse-btn"
@@ -109,7 +117,7 @@ export default {
 .navbar {
   min-width: 12rem;
   position: relative;
-  transition: width 0.5s ease;
+  transition: all 0.6s ease;
   z-index: 1;
   width: 14%;
 }
@@ -212,13 +220,27 @@ export default {
   }
 }
 
-/*----- Transition -----*/
-.fade-leave-active,
-.fade-enter-active {
+/*----- Transitions -----*/
+.background-fade-leave-active,
+.background-fade-enter-active {
   transition: opacity 0.8s;
 }
-.fade-enter,
-.fade-leave-to {
+.background-fade-enter,
+.background-fade-leave-to {
+  opacity: 0;
+}
+
+.navbar-fade-enter-active {
+  transition: opacity 0.4s;
+  transition-delay: 0.2s;
+}
+
+.navbar-fade-leave-active {
+  transition: opacity 0.2s;
+}
+
+.navbar-fade-enter,
+.navbar-fade-leave-to {
   opacity: 0;
 }
 </style>
