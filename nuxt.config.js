@@ -17,7 +17,7 @@ export default {
   css: ['@/assets/main.scss', '@/assets/reset.scss'],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [],
+  plugins: ['@/plugins/skills-data.js'],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
@@ -35,7 +35,22 @@ export default {
     component: 'fa',
     icons: {
       solid: ['faEnvelope'],
-      brands: ['faGithub', 'faLinkedin'],
+      brands: [
+        'faBootstrap',
+        'faCss3Alt',
+        'faGit',
+        'faGithub',
+        'faGitlab',
+        'faHtml5',
+        'faLinkedin',
+        'faJs',
+        'faNode',
+        'faPhp',
+        'faReact',
+        'faSass',
+        'faVuejs',
+        'faWordpress',
+      ],
     },
   },
 
