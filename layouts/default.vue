@@ -4,9 +4,16 @@
       <div class="home-bg" key="home" v-if="homePage">
         <div class="bottom-triangle" />
       </div>
-      <div class="main-bg" key="main" v-else><div class="top-triangle" /></div>
+      <div class="main-bg" key="main" v-else />
     </transition>
     <nav :class="navbarCollapsed && 'navbar-collapsed'" class="navbar">
+      <button
+        class="btn collapse-btn"
+        @click="navbarCollapsed = !navbarCollapsed"
+      >
+        <span v-if="navbarCollapsed">&gt;&gt;</span><span v-else>&lt;&lt;</span>
+      </button>
+
       <transition name="navbar-fade">
         <div class="presentation" v-show="!navbarCollapsed">
           <p class="name">Diana Nilsson</p>
@@ -38,13 +45,6 @@
           >
         </div>
       </transition>
-
-      <button
-        class="btn collapse-btn"
-        @click="navbarCollapsed = !navbarCollapsed"
-      >
-        <span v-if="navbarCollapsed">&gt;&gt;</span><span v-else>&lt;&lt;</span>
-      </button>
     </nav>
     <Nuxt class="route-view" />
   </div>
@@ -80,7 +80,6 @@ export default {
 
 .route-view {
   flex-grow: 1;
-  overflow: hidden;
   position: relative;
 }
 
@@ -97,24 +96,15 @@ export default {
   background-color: rgba(242, 242, 242, 0.6);
 }
 
-.triangle {
+.bottom-triangle {
   border-left: 100px solid transparent;
   height: 0;
   width: 0;
   position: absolute;
   right: 0;
   z-index: 1;
-}
-.bottom-triangle {
-  @extend .triangle;
   border-bottom: 100px solid $dark-blue;
   bottom: 0;
-}
-
-.top-triangle {
-  @extend .triangle;
-  border-top: 100px solid $dark-blue;
-  top: 0;
 }
 
 .navbar {

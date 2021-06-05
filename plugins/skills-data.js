@@ -1,5 +1,6 @@
 export default (_context, inject) => {
   inject('skills', {
+    /* eslint-disable sort-keys */
     // Frontend skills
     frontend: [
       {

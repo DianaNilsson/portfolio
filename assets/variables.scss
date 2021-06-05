@@ -1,11 +1,18 @@
 //Colors
 $beige: #9d877b;
-$blue: #8babbd;
+$black: #000;
+$blue: #7da0b5;
 $blue-shadow: rgb(31 56 71 / 50%);
 $dark-blue: #233f50;
 $dark-beige: #846e62;
 $dark-overlay: rgba(0, 0, 0, 0.1);
 $dark-overlay2: rgba(0, 0, 0, 0.2);
+$light-beige: #c9bcb5;
 $light-blue: #b5e4fe;
 $light-grey: #cbccce;
-$white: #ffffff;
+$white: #fff;
+
+//Shadow
+$box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.15);
+
+// border-image: linear-gradient(to left, transparent 10%, $beige 100%) 1;

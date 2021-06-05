@@ -1,28 +1,7 @@
 export default {
-  // Target: https://go.nuxtjs.dev/config-target
-  target: 'static',
+  build: {},
 
-  // Global page headers: https://go.nuxtjs.dev/config-head
-  head: {
-    title: 'portfolio',
-    meta: [
-      { charset: 'utf-8' },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: '' },
-    ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
-  },
-
-  // Global CSS: https://go.nuxtjs.dev/config-css
-  css: ['@/assets/main.scss', '@/assets/reset.scss'],
-
-  // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: ['@/plugins/skills-data.js'],
-
-  // Auto import components: https://go.nuxtjs.dev/config-components
-  components: true,
-
-  // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
+  // Modules for dev and build (recommended)
   buildModules: [
     // https://go.nuxtjs.dev/eslint
     '@nuxtjs/eslint-module',
@@ -30,11 +9,18 @@ export default {
     '@nuxtjs/google-fonts',
   ],
 
+  // Auto import components
+  components: true,
+
+  content: {},
+
+  // Global CSS
+  css: ['@/assets/main.scss', '@/assets/reset.scss'],
+
   // Fontawesome module
   fontawesome: {
     component: 'fa',
     icons: {
-      solid: ['faEnvelope'],
       brands: [
         'faBootstrap',
         'faCss3Alt',
@@ -51,6 +37,7 @@ export default {
         'faVuejs',
         'faWordpress',
       ],
+      solid: ['faEnvelope', 'faFeatherAlt', 'faStar'],
     },
   },
 
@@ -62,7 +49,21 @@ export default {
     },
   },
 
+  // Global page headers: https://go.nuxtjs.dev/config-head
+  head: {
+    link: [{ href: '/favicon.ico', rel: 'icon', type: 'image/x-icon' }],
+    meta: [
+      { charset: 'utf-8' },
+      { content: 'width=device-width, initial-scale=1', name: 'viewport' },
+      { content: '', hid: 'description', name: 'description' },
+    ],
+    title: 'portfolio',
+  },
+
   modules: ['@nuxtjs/pwa', '@nuxt/content', '@nuxtjs/style-resources'],
+
+  // Plugins to run before rendering page
+  plugins: ['@/plugins/skills-data.js'],
 
   // PWA module configuration: https://go.nuxtjs.dev/pwa
   pwa: {
@@ -75,9 +76,5 @@ export default {
     scss: ['@/assets/main.scss', '@/assets/variables.scss'],
   },
 
-  // Content module configuration: https://go.nuxtjs.dev/config-content
-  content: {},
-
-  // Build Configuration: https://go.nuxtjs.dev/config-build
-  build: {},
+  target: 'static',
 }
