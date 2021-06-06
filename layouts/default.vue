@@ -34,7 +34,7 @@
 
       <transition name="navbar-fade">
         <div class="router-links" v-show="!navbarCollapsed">
-          <NuxtLink to="/"><span class="vertical-bar" />Hem</NuxtLink>
+          <NuxtLink exact to="/"><span class="vertical-bar" />Hem</NuxtLink>
           <NuxtLink to="/om"><span class="vertical-bar" />Om mig</NuxtLink>
           <NuxtLink to="/projekt">
             <span class="vertical-bar" />Projekt</NuxtLink
@@ -174,7 +174,7 @@ export default {
     flex-grow: 1;
     max-height: 36rem;
 
-    .nuxt-link-exact-active {
+    .nuxt-link-active {
       background-color: $blue !important;
       box-shadow: 0px 0px 0px 1px $blue-shadow;
       transition: background-color 0.6s ease;
