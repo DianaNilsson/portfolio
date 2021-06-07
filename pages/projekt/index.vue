@@ -50,10 +50,11 @@
         <NuxtLink :to="`/projekt/${project.slug}`">
           <h3>{{ project.title }}</h3>
         </NuxtLink>
-
-        <span v-for="(tag, index) in project.tags" :key="tag">
-          {{ tag }}<span v-if="index !== project.tags.length - 1">, </span>
-        </span>
+        <p class="tag-text">
+          <span v-for="(tag, index) in project.tags" :key="tag">
+            {{ tag }}<span v-if="index !== project.tags.length - 1">, </span>
+          </span>
+        </p>
       </div>
     </div>
   </main>
@@ -140,6 +141,7 @@ export default {
 .flex-container {
   display: flex;
   flex-wrap: wrap;
+  margin: 0 -2%;
 
   .card {
     margin: 2%;
@@ -206,6 +208,16 @@ export default {
           visibility: visible;
         }
       }
+    }
+
+    h3 {
+      font-weight: 500;
+      margin-bottom: 0.5rem;
+      margin-left: 0.2rem;
+    }
+    .tag-text {
+      color: $dark-grey;
+      margin-left: 0.2rem;
     }
   }
 }
