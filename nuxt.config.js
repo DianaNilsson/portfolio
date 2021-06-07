@@ -15,7 +15,7 @@ export default {
   content: {},
 
   // Global CSS
-  css: ['@/assets/main.scss', '@/assets/reset.scss'],
+  css: ['@/assets/main.scss', '@/assets/default.scss'],
 
   // Fontawesome module
   fontawesome: {
