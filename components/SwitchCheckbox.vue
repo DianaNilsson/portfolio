@@ -62,7 +62,7 @@ export default {
 }
 
 input:checked + .slider {
-  background-color: #2196f3;
+  background-color: $standard-blue;
 }
 
 input:focus + .slider {

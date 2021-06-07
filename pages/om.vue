@@ -40,7 +40,7 @@
 }
 
 .sign {
-  color: #b4545a;
+  color: $milk-red;
   font-family: 'Herr Von Muellerhoff', 'Italianno', serif;
   font-weight: 400;
   font-size: 3em;

@@ -128,7 +128,7 @@ export default {
   }
 
   .active {
-    color: #fff;
+    color: $white;
     background-color: $beige;
 
     &:hover {
