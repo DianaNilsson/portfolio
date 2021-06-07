@@ -10,7 +10,7 @@
       <table>
         <tr>
           <td>Datum</td>
-          <td>2020-07-08</td>
+          <td>{{ project.createdAt.slice(0, 10) }}</td>
         </tr>
         <tr v-if="project.type">
           <td>Projekttyp</td>
