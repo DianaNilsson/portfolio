@@ -68,7 +68,7 @@ export default {
 <style lang="scss">
 /*----- Layout -----*/
 .nuxt-app {
-  background: $light-grey url('~assets/portfolio.jpg') repeat-y;
+  background: $grey url('~assets/portfolio.jpg') repeat-y;
   background-size: cover;
   display: flex;
   height: 100vh;

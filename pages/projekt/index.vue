@@ -114,16 +114,26 @@ export default {
   margin-bottom: 3rem;
 
   .tag {
+    background-color: $light-grey;
     border-radius: 3px;
     cursor: pointer;
     margin: 0.3rem;
     padding: 0.2rem 0.6rem;
-    transition: background-color 0.4s ease;
+    transition: all 0.4s ease;
+
+    &:hover {
+      background-color: $white;
+      box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.15);
+    }
   }
 
   .active {
     color: #fff;
-    background-color: $dark-beige;
+    background-color: $beige;
+
+    &:hover {
+      background-color: $light-beige;
+    }
   }
 }
 
