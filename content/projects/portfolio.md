@@ -1,9 +1,10 @@
 ---
-title: Portfolio
-description: Jamstack portfolio.
-img: hamsterwars.jpg
-github: https://github.com/DianaNilsson/portfolio
-
+code: https://github.com/DianaNilsson/portfolio
+createdAt: 2021-06-07
+img: portfolio.jpg
+shortInfo: Mitt examensarbete från IT-Högskolan, Frontendutvecklare.
+size: Drygt två veckors heltidsarbete
+summary: Mitt examensarbete, omfattande 15 YH-poäng (3 veckor) ifrån utbildningen Frontend-utvecklare på IT-Högskolan, Göteborg. Detta projekt gick ut på att skapa en statiskt genererad portfolio-webbsida med tekniker såsom Nuxt.js och Nuxt Content Module.
 tags:
   - Nuxt.js
   - Vue.js
@@ -11,18 +12,6 @@ tags:
   - HTML
   - SCSS
   - Netlify
+title: Jamstack Portfolio
+type: Individuellt skolprojekt/examensprojekt
 ---
-
-Empower your NuxtJS application with `@nuxtjs/content` module: write in a `content/` directory and fetch your Markdown, JSON, YAML and CSV files through a MongoDB like API, acting as a **Git-based Headless CMS**.
-
-## Writing content
-
-Learn how to write your `content/`, supporting Markdown, YAML, CSV and JSON: https://content.nuxtjs.org/writing.
-
-## Fetching content
-
-Learn how to fetch your content with `$content`: https://content.nuxtjs.org/fetching.
-
-## Displaying content
-
-Learn how to display your Markdown content with the `<nuxt-content>` component directly in your template: https://content.nuxtjs.org/displaying.

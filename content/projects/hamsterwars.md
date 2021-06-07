@@ -1,9 +1,10 @@
 ---
-title: Hamsterwars
-description: Mitt första react projekt ingick som ett examinerande moment i kursen "Effektiv frontendutveckling" för Frontendutvecklare, IT-Högskolan Göteborg. Applikationen har skapats med React som frontend och Node.js, Express.js och Cloud Firestore som backend.
+code: https://github.com/DianaNilsson/hamsterwars-app
+createdAt: 2020-06-18
 img: hamsterwars.jpg
-webb: https://hamsterwars-app.herokuapp.com/
-github: https://github.com/DianaNilsson/hamsterwars-app
+shortInfo: Mitt första react projekt.
+size: Cirka två veckors skolarbete
+summary: Mitt första react projekt. Detta projekt ingick som ett examinerande moment i kursen "Effektiv frontendutveckling" för Frontendutvecklare, IT-Högskolan Göteborg. Applikationen har skapats med React som frontend och Node.js, Express.js och Cloud Firestore som backend.
 tags:
   - React
   - JSX
@@ -11,4 +12,7 @@ tags:
   - Express.js
   - Firebase
   - Heroku
+title: Hamsterwars
+type: Individuellt skolprojekt
+website: https://hamsterwars-app.herokuapp.com/
 ---
