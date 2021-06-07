@@ -37,7 +37,7 @@ export default {
         'faVuejs',
         'faWordpress',
       ],
-      solid: ['faEnvelope', 'faFeatherAlt', 'faStar'],
+      solid: ['faArrowLeft', 'faEnvelope', 'faFeatherAlt', 'faStar'],
     },
   },
 

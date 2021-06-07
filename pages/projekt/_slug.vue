@@ -47,15 +47,12 @@
       </table>
     </div>
 
-    <div class="flex-container">
+    <div class="img-container">
       <img
         class="project-img"
         :src="require(`~/assets/project-resources/${project.img}`)"
         :alt="`${project.title} bild`"
       />
-      <div class="info">
-        <p>hej</p>
-      </div>
     </div>
 
     <nuxt-content :document="project" />
@@ -81,6 +78,7 @@ export default {
   left: 1rem;
 
   .arrow-icon {
+    color: $dark-grey;
     font-size: 0.8rem;
     margin-right: 0.4rem;
   }
@@ -118,8 +116,9 @@ export default {
     }
   }
 }
-.flex-container {
-  display: flex;
+.img-container {
+  text-align: center;
+  margin-bottom: 3rem;
 
   .project-img {
     border-radius: 3px;

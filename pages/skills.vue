@@ -7,7 +7,7 @@
       helheten och arbetar hela tiden på att bredda mina kunskaper inom såväl
       <strong>frontend</strong> som <strong>backend</strong> och
       <strong>design/användarvänlighet</strong>. Nedan följer de tekniker som
-      jag arbetet med hittills under mina <strong>två år</strong> som
+      jag arbetat med hittills under mina <strong>två år</strong> som
       programmerare.
     </p>
 

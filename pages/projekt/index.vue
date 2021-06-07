@@ -37,15 +37,17 @@
             </a>
             <a
               class="btn"
-              :href="project.github"
+              :href="project.code"
               target="_blank"
-              v-if="project.github"
+              v-if="project.code"
             >
-              Github
+              Kod
             </a>
           </div>
 
-          <p class="description">{{ project.description }}</p>
+          <p class="description">
+            {{ project.shortInfo }} ({{ project.createdAt.slice(0, 10) }})
+          </p>
         </div>
         <NuxtLink :to="`/projekt/${project.slug}`">
           <h3>{{ project.title }}</h3>
@@ -148,6 +150,7 @@ export default {
     width: 46%;
 
     .img-container {
+      border-radius: 3px;
       box-shadow: $box-shadow;
       @extend .flex-center;
       position: relative;
@@ -155,7 +158,6 @@ export default {
       overflow: hidden;
 
       img {
-        border-radius: 3px;
         width: 100%;
         //  Provides a placement different from the browser's default
         vertical-align: top;
@@ -175,6 +177,7 @@ export default {
 
       .description {
         background-color: $blue;
+        border-radius: 0 0 3px 3px;
         color: $white;
         bottom: 0;
         padding: 1rem;
