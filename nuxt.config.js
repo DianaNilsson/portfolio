@@ -55,9 +55,13 @@ export default {
     meta: [
       { charset: 'utf-8' },
       { content: 'width=device-width, initial-scale=1', name: 'viewport' },
-      { content: '', hid: 'description', name: 'description' },
+      {
+        content: 'Junior frontendutvecklare',
+        hid: 'description',
+        name: 'description',
+      },
     ],
-    title: 'portfolio',
+    title: 'Portfolio',
   },
 
   modules: ['@nuxtjs/pwa', '@nuxt/content', '@nuxtjs/style-resources'],
