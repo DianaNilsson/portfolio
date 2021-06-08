@@ -7,8 +7,8 @@
       helheten och arbetar hela tiden på att bredda mina kunskaper inom såväl
       <strong>frontend</strong> som <strong>backend</strong> och
       <strong>design/användarvänlighet</strong>. Nedan följer de tekniker som
-      jag arbetat med hittills under mina <strong>två år</strong> som
-      programmerare.
+      jag arbetat med hittills under mina
+      <strong>{{ experience }} år</strong> som programmerare.
     </p>
 
     <!-- Toggle grading -->
@@ -37,7 +37,7 @@
           <p class="info">
             Detta ska enbart ses som ett relativt mått på hur mycket jag har
             arbetat med de olika teknikerna under mina
-            <strong>två år</strong> som programmerare.
+            <strong>{{ experience }} år</strong> som programmerare.
           </p>
         </div>
       </transition>
@@ -91,6 +91,21 @@
 
 <script>
 export default {
+  computed: {
+    experience() {
+      const years = new Date().getFullYear() - this.$careerStarted.getFullYear()
+      const months = new Date().getMonth() - this.$careerStarted.getMonth()
+      let preWord = ''
+
+      if (months < -2) {
+        preWord = years === 1 ? 'knappt' : 'knappa'
+      } else if (months > 2) {
+        preWord = years === 1 ? 'drygt' : 'dryga'
+      }
+
+      return `${preWord} ${this.$numberToWordString(years)}`
+    },
+  },
   data() {
     return {
       showGrading: false,
@@ -215,7 +230,7 @@ h2 {
 .grading-info-enter,
 .grading-info-leave-to {
   opacity: 0;
-  transform: translateY(100%);
+  transform: translateY(-20%);
 }
 
 .grading-leave-active,
