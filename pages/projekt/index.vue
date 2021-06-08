@@ -13,12 +13,17 @@
       </button>
     </div>
 
-    <transition-group class="flex-container" name="cards" tag="div">
+    <transition-group
+      @before-leave="beforeCardLeave"
+      class="flex-container"
+      name="cards"
+      tag="div"
+    >
       <div
         class="card"
         :key="project.title"
+        :style="{ transition: `all 0.5s ease ${index / 5}s` }"
         v-for="(project, index) in filteredProjects"
-        :style="{ transition: `all ${(index + 1) / 2}s` }"
       >
         <div class="img-container">
           <img
@@ -99,6 +104,10 @@ export default {
   },
 
   methods: {
+    // Remove all cards consistently
+    beforeCardLeave(el) {
+      el.style.transitionDelay = '0s'
+    },
     toggleTag(e) {
       !this.filterTags.includes(e)
         ? this.filterTags.push(e)
