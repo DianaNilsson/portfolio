@@ -17,28 +17,30 @@
         <SwitchCheckbox @input="showGrading = $event" /> Visa gradering
       </p>
 
-      <div class="grading-description" v-if="showGrading">
-        <div class="gradings">
-          <p>
-            <fa icon="star" :key="number" v-for="number in 3" />
-            = har arbetat till stor del med
-          </p>
-          <p>
-            <fa icon="star" :key="number" v-for="number in 2" />
-            = har arbetat till viss del med
-          </p>
-          <p>
-            <fa icon="star" />
-            = har arbetat litegrann med
+      <transition name="grading-info">
+        <div class="grading-description" v-if="showGrading">
+          <div class="gradings">
+            <p>
+              <fa icon="star" :key="number" v-for="number in 3" />
+              = har arbetat till stor del med
+            </p>
+            <p>
+              <fa icon="star" :key="number" v-for="number in 2" />
+              = har arbetat till viss del med
+            </p>
+            <p>
+              <fa icon="star" />
+              = har arbetat litegrann med
+            </p>
+          </div>
+
+          <p class="info">
+            Detta ska enbart ses som ett relativt mått på hur mycket jag har
+            arbetat med de olika teknikerna under mina
+            <strong>två år</strong> som programmerare.
           </p>
         </div>
-
-        <p class="info">
-          Detta ska enbart ses som ett relativt mått på hur mycket jag har
-          arbetat med de olika teknikerna under mina <strong>två år</strong> som
-          programmerare.
-        </p>
-      </div>
+      </transition>
     </div>
 
     <!-- Skill sections -->
@@ -51,11 +53,23 @@
         <span v-else-if="key === 'workflow'">Workflow</span>
       </h2>
 
-      <div class="skill-card-container">
-        <div class="skill-card" :key="skill.title" v-for="skill in skillType">
-          <div class="grading-stars" v-if="showGrading">
-            <fa icon="star" :key="star" v-for="star in skill.star" />
-          </div>
+      <transition-group
+        appear
+        class="skill-card-container"
+        name="skill-cards"
+        tag="div"
+      >
+        <div
+          class="skill-card"
+          :key="skill.title"
+          :style="{ transition: `all 0.5s ease ${index / 10}s` }"
+          v-for="(skill, index) in skillType"
+        >
+          <transition name="grading">
+            <div class="grading-stars" v-if="showGrading">
+              <fa icon="star" :key="star" v-for="star in skill.star" />
+            </div>
+          </transition>
           <fa
             class="skill-icon"
             :icon="['fab', skill.icon]"
@@ -68,10 +82,9 @@
             :alt="`${skill.title} ikon`"
             v-else
           />
-
           <p class="skill-title">{{ skill.title }}</p>
         </div>
-      </div>
+      </transition-group>
     </section>
   </main>
 </template>
@@ -83,6 +96,7 @@ export default {
       showGrading: false,
     }
   },
+  methods: {},
 }
 </script>
 
@@ -185,5 +199,31 @@ h2 {
     top: 0.2rem;
     left: 0.5rem;
   }
+}
+
+/*----- Transitions -----*/
+.skill-cards-enter,
+.skill-cards-leave-to {
+  opacity: 0;
+  transform: translateY(100%);
+}
+
+.grading-info-leave-active,
+.grading-info-enter-active {
+  transition: all 0.5s;
+}
+.grading-info-enter,
+.grading-info-leave-to {
+  opacity: 0;
+  transform: translateY(100%);
+}
+
+.grading-leave-active,
+.grading-enter-active {
+  transition: opacity 0.5s;
+}
+.grading-enter,
+.grading-leave-to {
+  opacity: 0;
 }
 </style>
