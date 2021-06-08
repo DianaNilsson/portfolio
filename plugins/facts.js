@@ -1,4 +1,8 @@
 export default (_context, inject) => {
+  // Developer career started
+  inject('careerStarted', new Date('2019-06'))
+
+  // Skills
   inject('skills', {
     /* eslint-disable sort-keys */
     // Frontend skills
