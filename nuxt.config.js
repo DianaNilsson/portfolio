@@ -63,7 +63,7 @@ export default {
   modules: ['@nuxtjs/pwa', '@nuxt/content', '@nuxtjs/style-resources'],
 
   // Plugins to run before rendering page
-  plugins: ['@/plugins/skills-data.js'],
+  plugins: ['@/plugins/facts.js', '@/plugins/utils.js'],
 
   // PWA module configuration: https://go.nuxtjs.dev/pwa
   pwa: {
