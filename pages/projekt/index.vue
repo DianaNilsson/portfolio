@@ -87,7 +87,6 @@ export default {
       projectTags: [],
     }
   },
-  // eslint-disable-next-line vue/order-in-components
   async fetch() {
     // https://github.com/techfort/LokiJS/wiki/Query-Examples#find-queries
 
