@@ -13,11 +13,12 @@
       </button>
     </div>
 
-    <div class="flex-container">
+    <transition-group class="flex-container" name="cards" tag="div">
       <div
         class="card"
-        v-for="project in filteredProjects"
         :key="project.title"
+        v-for="(project, index) in filteredProjects"
+        :style="{ transition: `all ${(index + 1) / 2}s` }"
       >
         <div class="img-container">
           <img
@@ -53,12 +54,12 @@
           <h3>{{ project.title }}</h3>
         </NuxtLink>
         <p class="tag-text">
-          <span v-for="(tag, index) in project.tags" :key="tag">
-            {{ tag }}<span v-if="index !== project.tags.length - 1">, </span>
+          <span v-for="(tag, i) in project.tags" :key="tag">
+            {{ tag }}<span v-if="i !== project.tags.length - 1">, </span>
           </span>
         </p>
       </div>
-    </div>
+    </transition-group>
   </main>
 </template>
 
@@ -144,6 +145,7 @@ export default {
   display: flex;
   flex-wrap: wrap;
   margin: 0 -2%;
+  position: relative;
 
   .card {
     margin: 2%;
@@ -223,5 +225,20 @@ export default {
       margin-left: 0.2rem;
     }
   }
+}
+
+/*----- Transitions -----*/
+.cards-leave-active {
+  position: absolute;
+}
+
+.cards-enter,
+.cards-leave-to {
+  opacity: 0;
+  transform: translateY(50%);
+}
+
+.cards-move {
+  transition: all 0.5s ease;
 }
 </style>
