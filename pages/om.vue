@@ -2,37 +2,18 @@
   <main>
     <h1>VÄLKOMMEN HIT!</h1>
     <p class="about">
-      Jag gillar att planera, detaljarbete och problemlösningen som jag behöver
-      klara av längs vägen. Med programmeringen ser jag tusen möjligheter och
-      jag kan knapptvänta på att få fortsätta utvecklas och få testa nya
-      projekt.
-      <br />
-      Jag är en frontendutvecklare med intresse för helheten vilket bidrar till
-      att jag hela tiden arbetar på att bredda mina kunskaper inom såväl
-      <strong>frontend</strong> som <strong>backend</strong> och
-      <strong>design/användarvänlighet</strong>.
-
-      <br />
-      <span class="sign">/Diana Nilsson</span>
+      Jag har gått ifrån en magisterutbildning i Idrottsmedicin och arbete som
+      tränare till att idag utbilda mig till programmerare. Helomvändning?
+      Egentligen inte eftersom det är exakt samma sak som driver mig, nämligen
+      att skapa, analysera och optimera och som utvecklare får jag göra detta
+      till 100% vilket jag älskar! Min inriktning är frontendutveckling men
+      intresset sträcker sig både mot UX/design och backendutveckling. Jag tar
+      examen från IT-Högskolan, Göteborg, sommaren 2021 och söker då arbete som
+      frontendutvecklare i Göteborg/omnejd.
     </p>
-
-    <div class="about-cards">
-      <!-- <div class="card"></div>
-      <div class="card"></div>
-      <div class="card"></div>
-      <div class="card"></div>
-      <div class="card"></div>
-      <div class="card"></div>
-      <div class="card"></div>
-      <div class="card"></div>
-      <div class="card"></div> -->
-    </div>
+    <p class="sign">/Diana Nilsson</p>
   </main>
 </template>
-
-<script>
-// export default {}
-</script>
 
 <style lang="scss" scoped>
 .about {
@@ -43,9 +24,10 @@
   color: $milk-red;
   font-family: 'Herr Von Muellerhoff', 'Italianno', serif;
   font-weight: 400;
-  font-size: 3em;
+  font-size: 2.8em;
   letter-spacing: 2px;
-  margin-left: 10rem;
+  margin-top: 2rem;
+  text-align: center;
 }
 
 .about-cards {

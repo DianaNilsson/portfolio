@@ -1,5 +1,10 @@
 <template>
-  <div>Kontakt</div>
+  <main>
+    <h1>Kontakt</h1>
+    <p style="text-align: center">
+      Här kommer snart ett formulär samt mina kontaktuppgifter att dyka upp.
+    </p>
+  </main>
 </template>
 
 <script>
