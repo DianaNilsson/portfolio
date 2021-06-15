@@ -1,9 +1,7 @@
 <template>
   <div class="nuxt-app">
     <transition appear name="background-fade">
-      <div class="home-bg" key="home" v-if="homePage">
-        <div class="bottom-triangle" />
-      </div>
+      <div class="home-bg" key="home" v-if="homePage" />
       <div class="main-bg" key="main" v-else />
     </transition>
     <nav :class="navbarCollapsed && 'navbar-collapsed'" class="navbar">
@@ -22,10 +20,18 @@
             <NuxtLink to="/kontakt">
               <fa icon="envelope" />
             </NuxtLink>
-            <a href="https://github.com/DianaNilsson" target="_blank">
+            <a
+              href="https://github.com/DianaNilsson"
+              rel="noopener"
+              target="_blank"
+            >
               <fa :icon="['fab', 'github']" />
             </a>
-            <a href="https://linkedin.com/in/diana-nilsson" target="_blank">
+            <a
+              href="https://linkedin.com/in/diana-nilsson"
+              rel="noopener"
+              target="_blank"
+            >
               <fa :icon="['fab', 'linkedin']" />
             </a>
           </p>
@@ -96,23 +102,11 @@ export default {
   background-color: rgba(242, 242, 242, 0.6);
 }
 
-.bottom-triangle {
-  border-left: 100px solid transparent;
-  height: 0;
-  width: 0;
-  position: absolute;
-  right: 0;
-  z-index: 1;
-  border-bottom: 100px solid $dark-blue;
-  bottom: 0;
-}
-
 .navbar {
-  min-width: 12rem;
   position: relative;
   transition: all 0.6s ease;
   z-index: 1;
-  width: 14%;
+  min-width: 12.5rem;
 }
 
 .navbar-collapsed {
@@ -163,6 +157,7 @@ export default {
         transform: scale(1.4);
       }
       &:active {
+        transform: scale(1.2);
       }
     }
   }
@@ -172,7 +167,7 @@ export default {
     display: flex;
     flex-direction: column;
     flex-grow: 1;
-    max-height: 36rem;
+    max-height: 32rem;
 
     .nuxt-link-active {
       background-color: $blue !important;

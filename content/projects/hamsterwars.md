@@ -16,3 +16,7 @@ title: Hamsterwars
 type: Individuellt skolprojekt
 website: https://hamsterwars-app.herokuapp.com/
 ---
+
+Här ska det snart appliceras mer innehåll.
+
+Det går att skriva innehåll som vanlig text/Markdown, HTML och Komponenter. Riktigt nice!

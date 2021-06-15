@@ -1,5 +1,6 @@
 <template>
   <header>
+    <div class="bottom-triangle" />
     <div class="header-border">
       <div class="header-container">
         <h1>Portfolio</h1>
@@ -25,14 +26,22 @@
   </header>
 </template>
 
-<script>
-export default {}
-</script>
-
 <style lang="scss" scoped>
 header {
   @extend .flex-center;
 }
+
+.bottom-triangle {
+  border-left: 100px solid transparent;
+  height: 0;
+  width: 0;
+  position: absolute;
+  right: 0;
+  z-index: 1;
+  border-bottom: 100px solid $dark-blue;
+  bottom: 0;
+}
+
 .header-border {
   border: 6px solid $blue;
   @extend .flex-center;

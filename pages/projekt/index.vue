@@ -88,18 +88,22 @@ export default {
     }
   },
   async fetch() {
-    // https://github.com/techfort/LokiJS/wiki/Query-Examples#find-queries
-
-    this.projectTags = await this.$content('projects').only(['tags']).fetch()
-    this.filteredProjects = await this.$content('projects')
-      .without(['body'])
-      .where({
-        tags:
-          this.filterTags.length === 0
-            ? { $containsNone: this.filterTags }
-            : { $containsAny: this.filterTags },
-      })
-      .fetch()
+    try {
+      // Get tags only
+      this.projectTags = await this.$content('projects').only(['tags']).fetch()
+      // Get all filtered projects
+      this.filteredProjects = await this.$content('projects')
+        .without(['body'])
+        .where({
+          tags:
+            this.filterTags.length === 0
+              ? { $containsNone: this.filterTags }
+              : { $containsAny: this.filterTags },
+        })
+        .fetch()
+    } catch (e) {
+      console.error(e)
+    }
   },
 
   methods: {
@@ -239,13 +243,11 @@ export default {
 .cards-leave-active {
   position: absolute;
 }
-
 .cards-enter,
 .cards-leave-to {
   opacity: 0;
   transform: translateY(50%);
 }
-
 .cards-move {
   transition: all 0.5s ease;
 }
